@@ -6,13 +6,13 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 18:53:22 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/01 19:25:30 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/02 04:51:35 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+void	ft_bzero(void *s, size_t n)
 {
 	while (n)
 	{
