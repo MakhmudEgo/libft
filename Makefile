@@ -6,17 +6,18 @@
 #    By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 14:02:02 by mizola            #+#    #+#              #
-#    Updated: 2020/05/01 19:14:13 by mizola           ###   ########.fr        #
+#    Updated: 2020/05/02 05:36:28 by mizola           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SRC = *.c
-ICS = /
 OSRC = *.o
+FLAGS = -Wall -Wextra -Werror -std=c99
 
-all:
-	gcc -c $(SRC)
+all: $(NAME)
+$(NAME):
+	gcc -c $(FLAGS) $(SRC)
 	ar rc $(NAME) $(OSRC)
 	ranlib $(NAME)	
 
