@@ -6,15 +6,15 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 03:25:14 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/01 04:10:52 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/02 05:24:27 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *str)
+size_t		ft_strlen(const char *str)
 {
-	int index;
+	size_t index;
 
 	index = 0;
 	while (str[index] != '\0')
