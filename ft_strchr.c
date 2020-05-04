@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 02:55:43 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/04 03:16:02 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/04 04:01:09 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[index] != '\0')
 	{
 		if (s[index] == (char)c)
-		{
 			return ((char*)s + index);
-		}
 		index++;
 	}
 	if ((char)c == '\0')
