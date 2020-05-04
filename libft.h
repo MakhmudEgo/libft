@@ -33,5 +33,6 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+int			ft_strncmp(const char *str1, const char *str2, size_t n);
 
 #endif
