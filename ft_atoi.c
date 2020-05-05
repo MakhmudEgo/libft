@@ -26,6 +26,8 @@ void	get_str_without_signs(const char *str, int *k, unsigned int *index)
 			*k = -1;
 		*index += 1;
 	}
+	while (str[*index] == '0')
+		*index += 1;
 }
 
 int		ft_atoi(const char *str)
@@ -34,6 +36,7 @@ int		ft_atoi(const char *str)
 	long int		number;
 	int				k;
 	long int		old_number;
+	unsigned int	lim;
 
 	index = 0;
 	number = 0;
@@ -44,12 +47,13 @@ int		ft_atoi(const char *str)
 		old_number = k * number;
 		number = (number * 10) + (str[index] - '0');
 		if ((old_number < 0 && number * k > 0)
-			|| (old_number < 0 && index > 19))
+			|| (old_number < 0 && lim >= 19))
 			return (0);
 		if ((old_number > 0 && number * k < 0)
-			|| (old_number > 0 && index > 19))
+			|| (old_number > 0 && lim >= 19))
 			return (-1);
 		index++;
+		lim++;
 	}
 	return (number * k);
 }
