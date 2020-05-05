@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 19:12:53 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/05 02:53:31 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/05 03:18:56 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ int			ft_atoi(const char *str);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
+int			ft_isascii(int c);
+int			ft_isprint(int c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
 
 #endif
