@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	i;
 	unsigned int	n;
 
-	len = strlen(s1) + strlen(s2) + 1;
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	i = 0;
 	n = 0;
 	str = (char*)malloc(len);
