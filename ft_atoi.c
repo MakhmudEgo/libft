@@ -41,16 +41,17 @@ int		ft_atoi(const char *str)
 	index = 0;
 	number = 0;
 	k = 1;
+	lim = 0;
 	get_str_without_signs(str, &k, &index);
 	while (str[index] <= '9' && str[index] >= '0')
 	{
 		old_number = k * number;
 		number = (number * 10) + (str[index] - '0');
 		if ((old_number < 0 && number * k > 0)
-			|| (old_number < 0 && lim >= 19))
+			|| (old_number < 0 && lim > 18))
 			return (0);
 		if ((old_number > 0 && number * k < 0)
-			|| (old_number > 0 && lim >= 19))
+			|| (old_number > 0 && lim > 18))
 			return (-1);
 		index++;
 		lim++;
