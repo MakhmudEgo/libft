@@ -12,6 +12,29 @@
 
 #include "libft.h"
 
+static void		skip_elem(const char *str, const char c, unsigned int *i)
+{
+	while (str[*i] == c || str[*i] == ' ' || str[*i] == '\t'
+		   || str[*i] == '\v' || str[*i] == '\f'
+		   || str[*i] == '\r' || str[*i] == '\n')
+		*i += 1;
+}
+
+static int		get_len_str(const char *str, const char c, unsigned int i)
+{
+	int n;
+
+	n = 0;
+	while (str[i] != c && str[i] != ' ' && str[i] != '\t'
+		   && str[i] != '\v' && str[i] != '\f'
+		   && str[i] != '\r' && str[i] != '\n' && str[i] != '\0')
+	{
+		i++;
+		n++;
+	}
+	return (n);
+}
+
 static int		get_len_res(const char *str, const char c)
 {
 	unsigned int i;
@@ -23,10 +46,7 @@ static int		get_len_res(const char *str, const char c)
 	{
 		if (str[i] == c)
 		{
-			while (str[i] == c || str[i] == ' ' || str[i] == '\t'
-				|| str[i] == '\v' || str[i] == '\f'
-				|| str[i] == '\r' || str[i] == '\n')
-				i++;
+			skip_elem(str, c, &i);
 			n++;
 		}
 		i++;
@@ -34,12 +54,35 @@ static int		get_len_res(const char *str, const char c)
 	return (n);
 }
 
-//char	**ft_split(char const *s, char c)
-//{
-//	char	**result;
-//	int 	i;
-//
-//}
+char	**ft_split(char const *s, char c)
+{
+	char			**result;
+	unsigned int	i;
+	int				n;
+	int 			j;
+	int 			index;
+
+	j = 0;
+	i = 0;
+	index = 0;
+	n = get_len_res(s, c);
+	result = malloc(sizeof(char**) * (n + 1));
+	if (result == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		skip_elem(s, c, &i);
+		n = get_len_str(s, c, i);
+		result[j] = malloc(sizeof(char) * (n + 1));
+		while (index < n)
+			result[j][index++] = s[i++];
+		result[j][index] = '\0';
+		index = 0;
+		i++;
+		j++;
+	}
+	return (result);
+}
 
 
 
@@ -47,9 +90,9 @@ static int		get_len_res(const char *str, const char c)
 
 int 	main(void)
 {
-//	char	**result;
+//	char	*str = "";
 //	int 	i;
-
-	printf("%d\n", get_len_res("h1hhhh22222hhhhh33333hhh    hh    44 44hhh  hh5555hhh6666hhh7hhhh", 'h'));
+	ft_split("     h1hh2h3h4", 'h');
+//	printf("%d\n", ft_split("     h1hh1h1h1", 'h'));
 	return 0;
 }
