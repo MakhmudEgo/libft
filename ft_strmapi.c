@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *res;
-	unsigned int i;
+	char			*res;
+	unsigned int	i;
 
 	i = 0;
 	res = malloc(sizeof(char) * ft_strlen(s) + 1);
@@ -28,14 +28,4 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	res[i] = '\0';
 	return (res);
-}
-char test(unsigned int i, char c)
-{
-	return c;
-}
-
-int main(void)
-{
-	char *str = ft_strmapi("hello", test);
-	printf("res :%s", str);
 }
