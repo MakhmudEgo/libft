@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 05:22:48 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/09 22:25:41 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/14 20:16:47 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ char			**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
+	if (!s || !c)
+		return (NULL);
 	n = get_amount_str(s, c) + 1;
 	if (n == 0)
 		return (NULL);

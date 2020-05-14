@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 03:08:36 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/03 06:28:41 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/14 20:16:57 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t siz)
 	size_t i;
 
 	i = 0;
+	if (!src)
+		return (0);
 	if (siz == 0)
 		return (ft_strlen(src));
 	while (i < siz - 1 && src[i] != '\0')

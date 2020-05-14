@@ -6,13 +6,11 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:42:07 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/04 19:50:33 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/14 20:16:39 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	get_str_without_signs(const char *str, int *k, unsigned int *index)
+static void	get_str_without_signs(const char *str, int *k, unsigned int *index)
 {
 	while (str[*index] == ' ' || str[*index] == '\t'
 		|| str[*index] == '\v' || str[*index] == '\f'
@@ -30,7 +28,7 @@ void	get_str_without_signs(const char *str, int *k, unsigned int *index)
 		*index += 1;
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	unsigned int	index;
 	long int		number;

@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 15:41:08 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/12 16:11:53 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/14 20:17:01 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	res = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (s == NULL || res == NULL)
+	if (res == NULL)
 		return (NULL);
 	while (s[i] != '\0')
 	{
