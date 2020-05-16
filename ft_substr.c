@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 16:59:38 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/05 17:25:16 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/15 20:21:19 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL || ft_strlen(s) < start)
+	if (s == NULL)
 		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
 	str = (char*)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
