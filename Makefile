@@ -6,7 +6,7 @@
 #    By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 14:02:02 by mizola            #+#    #+#              #
-#    Updated: 2020/05/16 18:08:32 by mizola           ###   ########.fr        #
+#    Updated: 2020/05/16 18:11:07 by mizola           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,9 @@ $(OSRC_BONUS): $(SRC_BONUS) $(HEADER)
 	ar rc $(NAME) $(OSRC_BONUS)
 	ranlib $(NAME)
 
+%.o: %.c $(HEADER)
+	gcc $(FLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OSRC_MAIN) $(OSRC_BONUS)
 
@@ -51,3 +54,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re

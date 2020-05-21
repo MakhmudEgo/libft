@@ -6,7 +6,7 @@
 /*   By: mizola <mizola@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 05:22:48 by mizola            #+#    #+#             */
-/*   Updated: 2020/05/14 20:16:47 by mizola           ###   ########.fr       */
+/*   Updated: 2020/05/18 21:43:54 by mizola           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int		get_amount_str(const char *s, const char c)
 		if (*s != c)
 		{
 			i = 1;
-			while (*s != c && *s != '\0')
+			while (*s != '\0' && *s != c)
 				s++;
 			s--;
 			n++;
@@ -41,9 +41,9 @@ static int		get_len_str(const char *s, const char c, int i)
 	int n;
 
 	n = 0;
-	while ((s[i] == c || s[i] == ' ') && s[i] != '\0')
+	while (s[i] != '\0' && s[i] == c)
 		i++;
-	while ((s[i] != c) && s[i] != '\0')
+	while (s[i] != '\0' && s[i] != c)
 	{
 		i++;
 		n++;
@@ -56,9 +56,9 @@ static void		push_str(char *str, const char *s, int *i, char c)
 	int n;
 
 	n = 0;
-	while ((s[*i] == c || s[*i] == ' ') && s[*i] != '\0')
+	while (s[*i] != '\0' && s[*i] == c)
 		*i += 1;
-	while (s[*i] != c && s[*i] != '\0')
+	while (s[*i] != '\0' && s[*i] != c)
 	{
 		str[n] = s[*i];
 		n++;
@@ -68,31 +68,30 @@ static void		push_str(char *str, const char *s, int *i, char c)
 	str[n] = '\0';
 }
 
-static char		**ft_split_add(char **res, const char *s, char c, int *i)
+static char		**ft_split_add(char **res, const char *s, char c)
 {
 	int x;
 	int n;
+	int i;
 
 	x = 0;
+	i = 0;
 	while (s[x] != '\0')
 	{
 		n = get_len_str(s, c, x);
-		res[*i] = malloc(sizeof(char) * n);
-		if (res[*i] == NULL)
+		if (n == 1)
+			break ;
+		if (!(res[i] = (char*)malloc(sizeof(char) * n)))
 		{
-			free(res[*i]);
+			while (i)
+				free(res[i -= 1]);
+			free(res);
 			return (NULL);
 		}
-		if (n == 1)
-		{
-			res[*i] = NULL;
-			return (res);
-		}
-		push_str(res[*i], s, &x, c);
-		x++;
-		*i += 1;
+		push_str(res[i], s, &x, c);
+		x += 1;
+		i += 1;
 	}
-	res[*i] = NULL;
 	return (res);
 }
 
@@ -100,16 +99,16 @@ char			**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		n;
-	int		i;
 
-	i = 0;
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	n = get_amount_str(s, c) + 1;
-	if (n == 0)
-		return (NULL);
-	res = malloc(sizeof(char*) * n);
+	res = (char **)malloc(sizeof(char*) * n);
 	if (res == NULL)
 		return (NULL);
-	return (ft_split_add(res, s, c, &i));
+	res[n - 1] = NULL;
+	if (n == 1)
+		return (res);
+	res = ft_split_add(res, s, c);
+	return (res);
 }
