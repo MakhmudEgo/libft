@@ -34,3 +34,27 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+
+char	*ft_substr_free(char *s, unsigned int start, size_t len)
+{
+	char			*str;
+	unsigned int	i;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	str = (char*)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	while (i < len && s[start] != '\0')
+	{
+		str[i] = s[start];
+		i++;
+		start++;
+	}
+	str[i] = '\0';
+	free(s);
+	return (str);
+}

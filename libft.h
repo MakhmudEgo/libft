@@ -72,5 +72,6 @@ t_list				*ft_lstmap(t_list *lst,
 char				*ft_strtrim_free(char *s1, char const *set);
 size_t				ft_strlen_null(const char *str);
 char				*ft_strjoin_free(char *s1, char *s2);
+char				*ft_substr_free(char *s, unsigned int start, size_t len);
 
 #endif
