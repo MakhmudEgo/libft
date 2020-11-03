@@ -21,3 +21,13 @@ size_t		ft_strlen(const char *str)
 		index++;
 	return (index);
 }
+
+size_t		ft_strlen_null(const char *str)
+{
+	size_t index;
+
+	index = 0;
+	while (str && str[index] != '\0')
+		index++;
+	return (index);
+}

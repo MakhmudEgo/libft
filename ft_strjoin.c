@@ -35,3 +35,29 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
+
+char	*ft_strjoin_free(char *s1, char *s2)
+{
+	char			*str;
+	unsigned int	len;
+	unsigned int	i;
+	unsigned int	n;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	i = 0;
+	n = 0;
+	str = (char*)malloc(len);
+	if (str == NULL)
+		return (NULL);
+	while (s1[n] != '\0')
+		str[i++] = s1[n++];
+	n = 0;
+	while (s2[n] != '\0')
+		str[i++] = s2[n++];
+	str[i] = '\0';
+	free(s1);
+	free(s2);
+	return (str);
+}
