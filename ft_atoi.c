@@ -28,7 +28,7 @@ static void	get_str_without_signs(const char *str, int *k, unsigned int *index)
 		*index += 1;
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	index;
 	long int		number;

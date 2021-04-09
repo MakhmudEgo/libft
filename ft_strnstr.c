@@ -15,11 +15,10 @@
 static size_t	is_equal(const char *haystack, const char *needle,
 						size_t len, size_t *index)
 {
-	size_t index1;
+	size_t	index1;
 
 	index1 = 0;
-	while (haystack[*index] != '\0' && needle[index1] != '\0'
-			&& *index < len)
+	while (haystack[*index] != '\0' && needle[index1] != '\0' && *index < len)
 	{
 		if (haystack[*index] != needle[index1])
 		{
@@ -32,22 +31,22 @@ static size_t	is_equal(const char *haystack, const char *needle,
 	return (index1);
 }
 
-char			*ft_strnstr(const char *haystack, const char *needle,
+char	*ft_strnstr(const char *haystack, const char *needle,
 							size_t len)
 {
-	size_t index;
-	size_t index1;
-	size_t res;
+	size_t	index;
+	size_t	index1;
+	size_t	res;
 
 	index = 0;
 	res = ft_strlen(needle);
 	if (res == 0)
-		return ((char*)haystack);
+		return ((char *)haystack);
 	while (haystack[index] != '\0' && index < len)
 	{
 		index1 = is_equal(haystack, needle, len, &index);
 		if (index1 == res)
-			return ((char*)haystack + (index - index1));
+			return ((char *)haystack + (index - index1));
 		index++;
 	}
 	return (NULL);

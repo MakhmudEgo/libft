@@ -20,7 +20,7 @@ void	*ft_memmove(void *destination, const void *source, size_t n)
 		return (ft_memcpy(destination, source, n));
 	while (n)
 	{
-		*((char*)destination + n - 1) = *((char*)source + n - 1);
+		*((char *)destination + n - 1) = *((char *)source + n - 1);
 		n--;
 	}
 	return (destination);

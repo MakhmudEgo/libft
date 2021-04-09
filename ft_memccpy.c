@@ -14,13 +14,13 @@
 
 void	*ft_memccpy(void *destination, const void *source, int c, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*((char*)destination + i) = *((char*)source + i);
-		if (*((char*)destination + i) == (char)c)
+		*((char *)destination + i) = *((char *)source + i);
+		if (*((char *)destination + i) == (char)c)
 			return (destination + i + 1);
 		i++;
 	}

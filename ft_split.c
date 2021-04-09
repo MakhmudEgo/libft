@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int		get_amount_str(const char *s, const char c)
+static int	get_amount_str(const char *s, const char c)
 {
-	int n;
-	int i;
+	int	n;
+	int	i;
 
 	n = 0;
 	i = 0;
@@ -31,14 +31,14 @@ static int		get_amount_str(const char *s, const char c)
 		}
 		s++;
 	}
-	if (i)
-		n = (n == 0) ? 1 : n;
+	if (i && n == 0)
+		n = 1;
 	return (n);
 }
 
-static int		get_len_str(const char *s, const char c, int i)
+static int	get_len_str(const char *s, const char c, int i)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (s[i] != '\0' && s[i] == c)
@@ -51,9 +51,9 @@ static int		get_len_str(const char *s, const char c, int i)
 	return (n + 1);
 }
 
-static void		push_str(char *str, const char *s, int *i, char c)
+static void	push_str(char *str, const char *s, int *i, char c)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (s[*i] != '\0' && s[*i] == c)
@@ -68,11 +68,11 @@ static void		push_str(char *str, const char *s, int *i, char c)
 	str[n] = '\0';
 }
 
-static char		**ft_split_add(char **res, const char *s, char c)
+static char	**ft_split_add(char **res, const char *s, char c)
 {
-	int x;
-	int n;
-	int i;
+	int	x;
+	int	n;
+	int	i;
 
 	x = 0;
 	i = 0;
@@ -81,7 +81,8 @@ static char		**ft_split_add(char **res, const char *s, char c)
 		n = get_len_str(s, c, x);
 		if (n == 1)
 			break ;
-		if (!(res[i] = (char*)malloc(sizeof(char) * n)))
+		res[i] = (char *)malloc(sizeof(char) * n);
+		if (!res[i])
 		{
 			while (i)
 				free(res[i -= 1]);
@@ -95,7 +96,7 @@ static char		**ft_split_add(char **res, const char *s, char c)
 	return (res);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		n;
@@ -103,7 +104,7 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	n = get_amount_str(s, c) + 1;
-	res = (char **)malloc(sizeof(char*) * n);
+	res = (char **)malloc(sizeof(char *) * n);
 	if (res == NULL)
 		return (NULL);
 	res[n - 1] = NULL;

@@ -14,7 +14,7 @@
 
 static int	char_set(const char *set, char c)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -25,7 +25,7 @@ static int	char_set(const char *set, char c)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	int		i;
@@ -40,7 +40,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	while (s1[start] != '\0' && (s1[start] && char_set(set, s1[start])))
 		start++;
 	if (s1[start] == '\0')
-		return ((!(str = ft_calloc(1, 1)) ? NULL : str));
+		return ((str = ft_calloc(1, 1)));
 	while (finish >= 0 && (s1[finish] && char_set(set, s1[finish])))
 		finish--;
 	str = malloc(sizeof(char) * (finish - start + 2));
@@ -52,7 +52,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-char		*ft_strtrim_free(char *s1, char const *set)
+char	*ft_strtrim_free(char *s1, char const *set)
 {
 	char	*str;
 	int		i;
@@ -67,7 +67,7 @@ char		*ft_strtrim_free(char *s1, char const *set)
 	while (s1[start] != '\0' && (s1[start] && char_set(set, s1[start])))
 		start++;
 	if (s1[start] == '\0')
-		return ((!(str = ft_calloc(1, 1)) ? NULL : str));
+		return ((str = ft_calloc(1, 1)));
 	while (finish >= 0 && (s1[finish] && char_set(set, s1[finish])))
 		finish--;
 	str = malloc(sizeof(char) * (finish - start + 2));

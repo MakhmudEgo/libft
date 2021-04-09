@@ -76,7 +76,7 @@ static void	str_reverse(char *str, int i)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*res;
 	int		i;
